@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div.a {
+  text-align: inherit;
+}
+
+ 
+
+div.b {
+  text-align: left;
+}
+
+ 
+
+div.c {
+  text-align: right;
+}
+
+ 
+
+div.d {
+  text-align: justify;
+} 
+</style>
+</head>
+<body>
+
+ 
+
+<h1>The text-align Property</h1>
+
+ 
+<table class="a">
+<thead>
+<tr>
+<th>name</th>
+<th>phone</th>
+<th>call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.222</td>
+<td>a0.222</td>
+<td>0.222</td>
+</tr>
+<tr>
+<td>20.222</td>
+<td>50.222</td>
+<td>030.222</td>
+</tr>
+</tbody>
+</table>
+
+<table class="a">
+<thead>
+<tr>
+<th>name</th>
+<th>phone</th>
+<th>call</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>141.222</td>
+<td>a0.222</td>
+<td>0.222</td>
+</tr>
+<tr>
+<td>1310.222</td>
+<td>0.222</td>
+<td>77.222</td>
+</tr>
+</tbody>
+</table>
+
+
+<script>
+
+doc = document.getElementsByClassName("a");
+
+//table.length
+for(let i=0; i<doc.length; i++){
+ child = doc[i].getElementsByTagName("th");
+ //colum.length
+   
+   for(let j=0; j<child.length;j++){
+   //tr.length
+     body = doc[i].getElementsByTagName("tr");
+   large = 0;
+     for(let g=1; g<body.length; g++){
+       children = doc[i].getElementsByTagName("tr")[g].children;
+   
+       //-------------
+     
+   if(Number(children[j].innerText)== 0||Number(children[j].innerText)){
+       let spli = children[j].innerText.split(".");
+      // console.log(Number(children[i].innerText))
+       if(spli[0].length > large){
+       large = spli[0].length;
+       }
+   }
+       //----------- 
+       
+     }
+      console.log(large)
+      //----------------------------------  
+       for(let f = 1 ; f< body.length; f++){
+       children = doc[i].getElementsByTagName("tr")[f].children;
+          if(Number(children[j].innerText)== 0 || Number(children[j].innerText)){
+       let spli = children[j].innerText.split(".");
+         var emp=""
+       if(spli[0].length < large){
+       for(let m=0; m<large-spli[0].length;m++){
+       emp+="0"
+       }
+       children[j].innerText=emp+children[j].innerText
+       }
+   }
+     }  
+    //--------------------------------
+   }
+ 
+}
+
+ 
+/*
+   mm=document.getElementsByClassName("a");
+   children = mm[0].children;
+
+    large = "0";
+   for(let i = 0 ; i< children.length; i++){
+   if(Number(children[i].innerText)== 0 || Number(children[i].innerText)){
+       let spli = children[i].innerText.split(".");
+       console.log(Number(children[i].innerText))
+       if(spli[0].length > large){
+       large = spli[0].length;
+       }
+   }
+   }
+
+  console.log(large)
+
+   for(let i = 0 ; i< children.length; i++){
+   if(Number(children[i].innerText)== 0 || Number(children[i].innerText)){
+       let spli = children[i].innerText.split(".");
+         var emp=""
+       if(spli[0].length < large){
+       for(let j=0; j<large-spli[0].length;j++){
+       emp+="0"
+       }
+       console.log(emp)
+       children[i].innerText=emp+children[i].innerText
+       }
+   }
+   }
+//  console.log(large)
+*/
+
+</script>
+</body>
+</html>
